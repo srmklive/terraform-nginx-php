@@ -1,14 +1,17 @@
-# Terraform -Implement Application Load Balancer with Auto Scaling Group & EC2
+# Terraform -Create AWS EC2 instance with Nginx & PHP 8.2 
 
 ## Introduction
 
 This repo implements the provisions the following infrastructure on the AWS:
 
-* CodeBuild.
-* CodePipeline.
-* IAM Roles.
-* IAM Policies for CodeBuild & CodePipelines.
-* S3 bucket to save build artifacts.
+* AWS EC2 instance with the following specs:
+  * Ubuntu 22.04.
+  * Nginx.
+  * PHP 8.2
+* 1 VPC.
+* 1 Security Group.
+* 1 Subnet.
+* 1 Internet Gateway.
 
 
 ## Pre Requisites

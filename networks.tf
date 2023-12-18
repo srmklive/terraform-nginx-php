@@ -15,15 +15,6 @@ resource "aws_subnet" "tf-web" {
   }
 }
 
-resource "aws_subnet" "tf-db" {
-  vpc_id = aws_vpc.tf-vpc.id
-  cidr_block = "172.21.1.0/24"
-  availability_zone = "${var.availability_zone}b"
-  tags = {
-    Name = "Subnet DB - ${var.instance_tag}"
-  }
-}
-
 resource "aws_internet_gateway" "igw_tf" {
   vpc_id = aws_vpc.tf-vpc.id
 

@@ -10,10 +10,6 @@ output "private_ip" {
   value = aws_instance.web_server.private_ip
 }
 
-output "ec2_ami" {
-  value = aws_ami_from_instance.tf-ami.id
-}
-
 output "ec2_arn" {
   value = aws_instance.web_server.arn
 }

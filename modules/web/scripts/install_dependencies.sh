@@ -1,6 +1,5 @@
-#!/bin/bash
+#!/bin/bash -xe
 
-# shellcheck disable=SC2232
 sudo export DEBIAN_FRONTEND=noninteractive
 
 # Verify the Nginx Package Repository Sign Key.
@@ -18,7 +17,7 @@ NODE_MAJOR=20
 echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 
 # Initialize the PHP & NodeJS Package Repository
-sudo apt-get update && sudo apt-get install -y zip unzip git nano language-pack-en-base && \
+sudo apt-get update && sudo apt-get install -y apt-utils wget curl nano zip unzip git openssl sqlite3 build-essential software-properties-common cron supervisor gnupg tzdata language-pack-en-base && \
      export LC_ALL=en_US.UTF-8 && export LANG=en_US.UTF-8 && \
      sudo apt-get install -y software-properties-common && \
      sudo add-apt-repository -y ppa:ondrej/php && \
@@ -48,4 +47,14 @@ sudo apt-get update
 
 sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_SUSPEND=1 apt-get -y upgrade
 
+sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_SUSPEND=1 apt-get -y install ruby-full
+
 sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_SUSPEND=1 apt-get -y dist-upgrade
+
+cd /home/ubuntu && wget https://aws-codedeploy-$1.s3.$1.amazonaws.com/latest/install
+
+sudo chmod +x ./install && sudo DEBIAN_FRONTEND=noninteractive NEEDRESTART_SUSPEND=1 ./install auto
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip
+sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli
+rm -rf aws awscliv2.zip

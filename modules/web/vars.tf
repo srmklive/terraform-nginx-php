@@ -1,12 +1,12 @@
 variable "ami" {
-  default = "ami-0261755bbcb8c4a84"
+  description = "AMI ID used to provision EC2"
 }
 
 variable "instance_name" {
   default = "app_server"
 }
 
-variable instance_type {
+variable "instance_type" {
   description = "Instance Type to provision for EC2"
 }
 
@@ -24,4 +24,12 @@ variable "subnet_id" {
 
 variable "vpc_id" {
   description = "VPC ID information for TF servers."
+}
+
+variable "security_group" {
+  description = "Security Group ID information."
+}
+
+variable "region" {
+  description = "AWS Region information."
 }

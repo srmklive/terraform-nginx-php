@@ -1,21 +1,10 @@
-variable "ami" {
-  type = string
-}
-
-variable "instance_type" {
-  type = string
-}
-
 variable "instance_tag" {
   type = string
-}
-
-variable "key_name" {
-  default = "TF-TEST"
+  default = "Terraform"
 }
 
 variable "availability_zone" {
-  default = "us-east-1"
+  type = string
 }
 
 variable "open_cidr_block" {

@@ -6,6 +6,6 @@ output "s3-tf-state" {
     value = data.aws_s3_bucket.s3-tf-state.arn
 }
 
-output "ami-id" {
-    value = data.aws_ami_ids.ubuntu.ids
+output "ami-ubuntu-2204" {
+    value = data.aws_ami.ubuntu_2204.id
 }

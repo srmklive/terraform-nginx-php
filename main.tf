@@ -18,7 +18,7 @@ module "web" {
   source = "./modules/web"
   depends_on = [module.networks]
 
-  ami                   = var.ami
+  ami                   = module.data.ami-ubuntu-2204
   region                = var.availability_zone
   instance_type         = var.instance_type
   instance_tag          = var.instance_tag

@@ -1,4 +1,3 @@
-ami           = "ami-0e001c9271cf7f3b9"
 instance_type = "t3.medium"
 instance_tag  = "Terraform EC2"
 open_cidr_block = "0.0.0.0/0"
